@@ -42,9 +42,7 @@ services:
         - php-fpm-phpmyadmin
         - mariadb-phpmyadmin
       image: nginx:latest
-      command: "nginx -qt &&
-        until ping phpfpm -c1 > /dev/null; do sleep 1; done &&
-        exec nginx -g 'daemon off;'"
+      command: "exec nginx -g 'daemon off;'"
       environment:
         - HTTPS_PORT=${HTTPS_PORT:-443}
         - HTTP_PORT=${HTTP_PORT:-80}
