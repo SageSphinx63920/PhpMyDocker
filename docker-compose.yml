@@ -55,7 +55,7 @@ services:
       ports:
         - "${WEB_BIND:-}:${HTTPS_PORT:-443}:443"
         - "${WEB_BIND:-}:${HTTP_PORT:-80}:80"
-      restart: always
+      #restart: always
       networks:
         phpmyadmin-network:
           aliases:
