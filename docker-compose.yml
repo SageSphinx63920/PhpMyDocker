@@ -50,7 +50,7 @@ services:
         - TZ=${TZ:-UTC}
       volumes:
         - ./data/web:/web:ro,z
-        - ./data/conf/nginx/phpmyadmin.conf:/etc/nginx/sites-enabled/default.conf:z
+        - ./data/conf/nginx/phpmyadmin:/etc/nginx/sites-enabled/default:z
         - ./data/ssl:/etc/phpmydocker/:ro,z
       ports:
         - "${WEB_BIND:-}:${HTTPS_PORT:-443}:443"
