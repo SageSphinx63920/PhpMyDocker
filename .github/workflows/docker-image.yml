@@ -7,7 +7,7 @@ name: Publish php-fpm image
 
 on:
   schedule:
-    - cron: '32 6 * * *'
+    - cron: '0 6 * * *'
   push:
     branches: [ "main" ]
     # Publish semver tags as releases.
@@ -22,6 +22,7 @@ env:
 jobs:
   github-publish:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.commits[0].message, '[ci-skip]')"
     permissions:
       contents: read
       packages: write
@@ -70,7 +71,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./fpm-image
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm64,linux/arm64/v8
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -91,6 +92,7 @@ jobs:
 
   docker-publish:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.commits[0].message, '[ci-skip]')"
     permissions:
       contents: read
       packages: write
@@ -128,7 +130,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./fpm-image
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm64,linux/arm64/v8
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
