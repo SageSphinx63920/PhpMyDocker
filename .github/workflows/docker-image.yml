@@ -87,7 +87,7 @@ jobs:
         env:
           COSIGN_EXPERIMENTAL: "true"
 
-github-publish:
+  docker-publish:
     runs-on: ubuntu-latest
     permissions:
       contents: read
