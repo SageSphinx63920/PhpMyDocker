@@ -1,5 +1,5 @@
 # PhpMyDocker
-PhpMyDocker is a simple docker compose project which automatically downloads phpmyadmin, starts a MariaDB server and hosts a nginx for you to connect. I made this project because i had the problem with hosting phpmyadmin on my MacBook. With this you just have to run a bash script and start the compose file!
+PhpMyDocker is a simple docker compose project which automatically downloads phpmyadmin, starts a MariaDB server and hosts a nginx for you to connect. I made this project because i had the problem with hosting phpmyadmin on my MacBook. With this you just have to run a bash script and start the compose file! Feel free to visit the Docker Hub page here: https://hub.docker.com/r/sagesphinx63920/phpmydocker-fpm
 
  --- 
 ## Setup 
