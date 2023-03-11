@@ -41,7 +41,7 @@ services:
       depends_on:
         - php-fpm-phpmyadmin
         - mariadb-phpmyadmin
-      image: nginx:mainline-alpine
+      image: nginx:latest
       command: nginx -qt &&
         until ping phpfpm -c1 > /dev/null; do sleep 1; done &&
         exec nginx -g 'daemon off;'"
