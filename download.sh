@@ -12,7 +12,7 @@ fi
 curl -o "$target_dir/phpmyadmin.tar.gz" -L https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
 
 # Unpack the archive in the target directory
-tar -xzf "$target_dir/phpmyadmin.tar.gz" -C "$target_dir"
+tar -xzf "$target_dir/phpmyadmin.tar.gz" -C "$target_dir" --strip-components=1
 
 # Delete the archive
 rm "$target_dir/phpmyadmin.tar.gz"
