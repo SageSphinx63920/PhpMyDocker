@@ -7,7 +7,7 @@ PMA_URL="https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.ta
 PMA_DIR="./data/web/"
 
 # Download the latest version of PhpMyAdmin
-curl -o ./data/web/phpmyadmin.tar.gz $PMA_URL
+wget -O ./data/web/phpmyadmin.tar.gz $PMA_URL
 
 # Extract the PhpMyAdmin archive to the installation directory
 tar -xzf ./data/web/phpmyadmin.tar.gz -C $PMA_DIR --strip-components=1
