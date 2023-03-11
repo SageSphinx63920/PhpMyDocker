@@ -1,16 +1,18 @@
 #!/bin/bash
 
-# Define the URL for the latest version of PhpMyAdmin
-PMA_URL="https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz"
+# Define the target directory
+target_dir="./data/web"
 
-# Define the directory where PhpMyAdmin will be installed
-PMA_DIR="./data/web/"
+# Create the directory if it doesn't exist
+if [ ! -d "$target_dir" ]; then
+  mkdir -p "$target_dir"
+fi
 
-# Download the latest version of PhpMyAdmin
-wget -o ./data/web/phpmyadmin.tar.gz $PMA_URL
+# Download the latest version of phpMyAdmin using curl and save it as a tar file
+curl -o "$target_dir/phpmyadmin.tar.gz" -L https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
 
-# Extract the PhpMyAdmin archive to the installation directory
-tar -xzf ./data/web/phpmyadmin.tar.gz -C $PMA_DIR --strip-components=1
+# Unpack the archive in the target directory
+tar -xzf "$target_dir/phpmyadmin.tar.gz" -C "$target_dir"
 
-# Clean up the downloaded archive file
-rm ./data/web/phpmyadmin.tar.gz
+# Delete the archive
+rm "$target_dir/phpmyadmin.tar.gz"
